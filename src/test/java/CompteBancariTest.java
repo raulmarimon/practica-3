@@ -57,7 +57,6 @@ class CompteBancariTest {
     @Test
     void ingressarQuantitatCorrecta_incrementaSaldo() {
         compte.ingressar(50.0);
-
         assertEquals(150.0, compte.getSaldo(), 0.001);
     }
 
@@ -78,7 +77,6 @@ class CompteBancariTest {
     @Test
     void retirarQuantitatCorrecta_redueixSaldo() {
         compte.retirar(40.0);
-
         assertEquals(60.0, compte.getSaldo(), 0.001);
     }
 
@@ -102,4 +100,25 @@ class CompteBancariTest {
             compte.retirar(200.0);
         });
     }
+
+    @Test
+    void obtenirEstatSaldoAmbSaldoBaix_retornaSaldoBaix() {
+        assertEquals("Saldo baix", compte.obtenirEstatSaldo());
+    }
+
+    @Test
+    void obtenirEstatSaldoAmbSaldoNormal_retornaSaldoNormal() {
+        CompteBancari compteNormal = new CompteBancari("Joan", "ES987654321", 2000.0);
+
+        assertEquals("Saldo normal", compteNormal.obtenirEstatSaldo());
+    }
+
+    @Test
+    void obtenirEstatSaldoAmbSaldoAlt_retornaSaldoAlt() {
+        CompteBancari compteAlt = new CompteBancari("Anna", "ES111222333", 6000.0);
+
+        assertEquals("Saldo alt", compteAlt.obtenirEstatSaldo());
+    }
 }
+
+
