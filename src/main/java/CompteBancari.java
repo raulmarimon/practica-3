@@ -19,7 +19,7 @@ public class CompteBancari {
 
     public void ingressar(double quantitat) {
         validarQuantitatPositiva(quantitat);
-        saldo += quantitat;
+        saldo -= quantitat;
     }
 
     public void retirar(double quantitat) {
